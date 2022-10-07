@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//####================= SISTEMA DE GESTÃƒO DE DISCIPLINA =================####
+//####================= SISTEMA DE GESTAO DE DISCIPLINA =================####
 
 //================================Estrutura==================================
 
@@ -18,7 +18,7 @@ Aluno *fichaAluno;
 int quant = 0;
 int tam = 10;
 
-//===============================Prototipo das funcoes==================================
+//===========================Prototipo das funcoes==========================
 void meuMenu(int *esc);
 void incluir();
 Aluno excluir();
@@ -29,6 +29,8 @@ void relatorio();
 int main(void)
 {
     fichaAluno = (Aluno *)malloc(tam * sizeof(Aluno));
+    if(fichaAluno == NULL) return -1;
+    
     int escolha;
     printf("\n ======== ATIVIDADE ACADEMICA AVALIATIVA ========\n");
     printf(" ================================================\n");
@@ -64,7 +66,7 @@ int main(void)
                 printf("\n ===============================\n");
             }
             else
-                printf("\n NÃ£o existe aluno na lista!\n");
+                printf("\n NÃƒÂ£o existe aluno na lista!\n");
             break;
 
         case 4:
@@ -85,6 +87,11 @@ int main(void)
             printf("\n =======================================\n");
         }
     }
+    if (quant = tam){
+		fichaAluno = (Aluno *) realloc(fichaAluno,(tam*2) * sizeof(Aluno));
+    	if(fichaAluno == NULL) return -1;
+	}
+    
     free(fichaAluno);
     return 0;
 }
